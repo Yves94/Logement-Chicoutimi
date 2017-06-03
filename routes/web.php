@@ -16,3 +16,4 @@
 // });
 
 Route::get('/', 'Home@index');
+Route::get('/sale', 'Sale@index');
