@@ -21,18 +21,20 @@
     <h3>Logemements à Proximités</h3>
 
     <div class="row">
-        @for ($i = 0; $i < 6; $i++)
+        @foreach($places as $place)
+            <a href="/places/{{$place->id}}">
             <div class="col-sm-6 col-md-4">
                 <div class="thumbnail">
-                    <img src="http://lorempixel.com/350/250/city" alt="Appartement à vendre">
+                    <img src="{{ $place->thumbnail }}" alt="Appartement à vendre">
                     <div class="caption">
-                        <h3>Titre de la vente</h3>
-                        <p>Description brève...</p>
-                        <p>Prix : 250.000 $</p>
+                        <h3>{{ $place->title }}</h3>
+                        <p>{{str_limit($place->description, 40)}}</p>
+                        <p>Prix : {{ $place->price }} $</p>
                     </div>
                 </div>
             </div>
-        @endfor
+            </a>
+        @endforeach
     </div>
     
 @endsection

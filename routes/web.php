@@ -15,5 +15,9 @@
 //     return view('welcome');
 // });
 
-Route::get('/', 'Home@index');
-Route::get('/sale', 'Sale@index');
+Route::get('/', 'Place@index');
+Route::get('/sale', 'Place@create');
+Route::post('/sale/store', 'Place@store');
+Route::get('/places/{place}', 'Place@show');
+
+
