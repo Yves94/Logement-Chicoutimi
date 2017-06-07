@@ -15,11 +15,13 @@ class Place extends Controller
         $this->httpClient = $httpClientService;
     }
 
-    public function index()
+    public function index(Request $request)
     {
+        $params = '?lat=' . $request->get('lat') . '&long=' . $request->get('long') . '&radius=' . $request->get('radius');
+
         $places = $this->httpClient->callApi(
             HttpClientService::GET_METHOD,
-            self::PLACE_ENDPOINT
+            self::PLACE_ENDPOINT . $params
         );
 
         return view('home', [

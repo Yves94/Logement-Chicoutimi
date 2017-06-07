@@ -53,5 +53,11 @@
             map: map
         });
     }
+
+    $(function () {
+        $('.form-filter').on('change', function () {
+            console.log('test');
+        })
+    })
 </script>
 
