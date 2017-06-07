@@ -7,9 +7,7 @@ use Illuminate\Http\Request;
 
 class Place extends Controller
 {
-
     const PLACE_ENDPOINT = '/places';
-
     private $httpClient;
 
     public function __construct(HttpClientService $httpClientService)
