@@ -16,7 +16,13 @@ class Place extends Controller
     }
 
     public function index(Request $request)
-    {
+    {   
+        if ($request->get('lat') == null || $request->get('long') == null || $request->get('radius') == null) {
+            $request['lat'] = 48.3345165;
+            $request['long'] = -71.2424132;
+            $request['radius'] = 10;
+        }
+        
         $params = '?lat=' . $request->get('lat') . '&long=' . $request->get('long') . '&radius=' . $request->get('radius');
 
         $places = $this->httpClient->callApi(

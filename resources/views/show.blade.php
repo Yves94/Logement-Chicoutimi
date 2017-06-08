@@ -1,4 +1,5 @@
 @extends('layouts.header')
+@section('title', 'Vendre')
 
 @section('style')
     
