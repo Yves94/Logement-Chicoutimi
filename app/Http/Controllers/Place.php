@@ -17,10 +17,12 @@ class Place extends Controller
 
     public function index(Request $request)
     {   
+        $init = true;
         if ($request->get('lat') == null || $request->get('long') == null || $request->get('radius') == null) {
-            $request['lat'] = 48.3345165;
-            $request['long'] = -71.2424132;
+            $request['lat'] = 0;
+            $request['long'] = 0;
             $request['radius'] = 10;
+            $init = false;
         }
         
         $params = '?lat=' . $request->get('lat') . '&long=' . $request->get('long') . '&radius=' . $request->get('radius');
@@ -31,7 +33,8 @@ class Place extends Controller
         );
 
         return view('home', [
-            'places' => $places
+            'places' => $places,
+            'init' => $init
         ]);
     }
 
