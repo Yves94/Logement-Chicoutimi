@@ -46,7 +46,8 @@
         var here = {lat: 48.4201407, lng: -71.0443195};
         var map = new google.maps.Map(document.getElementById('map'), {
             zoom: 14,
-            center: here
+            center: here,
+            scrollwheel: false, // disable zoom when scrolling
         });
         var marker = new google.maps.Marker({
             position: here,
