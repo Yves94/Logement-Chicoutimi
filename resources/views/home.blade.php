@@ -112,7 +112,7 @@
                     });
 
                     var infowindow = new google.maps.InfoWindow({
-                        content: '<img class="place-img-sm" src="' + value.img + '"><h4>' + value.title + '</h4><p>Prix : ' + value.price + ' $</p>'
+                        content: '<img class="place-img-sm" src="' + value.img + '"><h4>' + value.title + '</h4><p>Prix : ' + value.price + ' $</p><button class="place-details btn btn-default" data-href="' + value.link + '" style="width:100%">Détails</button>'
                     });
 
                 });
@@ -148,6 +148,7 @@
             
             $('.place-container').each(function(key, value) {
                 var data = {};
+                data.link = $(this).attr('href');
                 data.img = $(this).find('.place-img').attr('src');
                 data.title = $(this).find('.place-title').html();
                 data.lat = $(this).find('.place-lat').val();
@@ -161,6 +162,10 @@
 
     $(document).on('input', '#radius', function() {
         $('#indicator').html('Rayon : ' + $(this).val() + ' km');
+    });
+
+    $(document).on('click', '.place-details', function() {
+        window.location.href = $(this).data('href');
     });
 </script>
 
