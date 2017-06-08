@@ -78,7 +78,8 @@
     function initMap() {
         var map = new google.maps.Map(document.getElementById('map'), {
             center: {lat: 48.3345165, lng: -71.2424132},
-            zoom: 10
+            zoom: 10,
+            scrollwheel: false, // disable zoom when scrolling
         });
 
         var infoWindow = new google.maps.InfoWindow({map: map});
@@ -96,8 +97,6 @@
                 infoWindow.setPosition(pos);
                 infoWindow.setContent('Je suis ici');
                 map.setCenter(pos);
-
-                
 
                 $.each(locations, function(key, value) {
                     
