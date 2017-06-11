@@ -140,7 +140,7 @@
     $(function () {
 
         $('#radius').on('change', function() {
-            window.location.href = "http://127.0.0.1:8081/?lat=" + pos.lat + "&long=" + pos.lng + "&radius=" + $(this).val();
+            window.location.href = "http://127.0.0.1:8001/?lat=" + pos.lat + "&long=" + pos.lng + "&radius=" + $(this).val();
         });
 
         if($('#radius').data('init')) {
