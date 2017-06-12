@@ -103,7 +103,8 @@
                     var marker = new google.maps.Marker({
                         position: new google.maps.LatLng(value.lat, value.lng),
                         map: map,
-                        title: value.title
+                        title: value.title,
+                        icon: "{{ asset('img/pin.png') }}",
                     });
 
                     marker.addListener('click', function() {
