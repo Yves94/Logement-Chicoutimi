@@ -68,9 +68,8 @@
     
 @endsection
 
+@section('js')
 {{-- Scripts pour la Google map  --}}
-<script src="{{ asset('js/jquery-3.2.1.min.js') }}"></script>
-<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBp7A-v-XNZBbCiDGvLC6W6ojYJoRWdMdU&callback=initMap"></script>
 <script>
     var pos; // Location de l'utilisateur courant
     var locations = []; // Tableau de la localisations des logements
@@ -168,5 +167,4 @@
         window.location.href = $(this).data('href');
     });
 </script>
-
-    
+@endsection

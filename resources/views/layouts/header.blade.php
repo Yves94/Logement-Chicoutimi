@@ -37,5 +37,8 @@
         @yield('content')
     </div>
 
+    <script src="{{ asset('js/jquery-3.2.1.min.js') }}"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBp7A-v-XNZBbCiDGvLC6W6ojYJoRWdMdU&callback=initMap"></script>
+    @yield('js')
 </body>
 </html>
