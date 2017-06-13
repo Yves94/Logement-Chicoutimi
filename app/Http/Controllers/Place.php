@@ -55,8 +55,18 @@ class Place extends Controller
         return view('sale');
     }
 
-    public function store()
-    {
+    public function store(Request $request)
+    {  
+        $request['city'] = 'Chicoutimi';
+        $request['address'] = $request->input('num') .', '. $request->input('rue');
+        $request['thumbnail'] = 'http://lorempixel.com/350/250/';
+
+        $place = $this->httpClient->callApi(
+            HttpClientService::POST_METHOD,
+            self::PLACE_ENDPOINT,
+            $request->input()
+        );
+
         return view('sale');
     }
 }

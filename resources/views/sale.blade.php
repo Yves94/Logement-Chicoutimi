@@ -15,15 +15,15 @@
 
     <br>
 
-    <form method="post" action="#">
+    <form method="post" action="sale">
         <div class="form-group">
             <label for="title">Titre de l'annonce</label>
-            <input type="text" class="form-control" id="title" placeholder="Titre. Max 20 caractères">
+            <input type="text" class="form-control" name="title" id="title" placeholder="Titre. Max 20 caractères">
         </div>
 
         <div class="form-group">
             <label for="description">Description</label>
-            <textarea class="form-control" id="description" placeholder="Description. Max 200 caractères"></textarea>
+            <textarea class="form-control" id="description" name="description" placeholder="Description. Max 200 caractères"></textarea>
         </div>
 
 
@@ -31,25 +31,25 @@
             <div class="col-md-2">
                 <div class="form-group">
                     <label for="adresse1">Numéro civil</label>
-                    <input type="number" class="form-control" id="adresse1" placeholder="Numéro Civil">
+                    <input type="number" class="form-control" id="adresse1" name="num" placeholder="Numéro Civil">
                 </div>
             </div>
             <div class="col-md-6">
                 <div class="form-group">
                     <label for="adresse2">Nom de la rue</label>
-                    <input type="text" class="form-control" id="adresse2" placeholder="Nom de la rue">
+                    <input type="text" class="form-control" id="adresse2" name="rue" placeholder="Nom de la rue">
                 </div>
             </div>
             <div class="col-md-2">
                 <div class="form-group">
                     <label for="adresse3">Ville</label>
-                    <input type="text" class="form-control" id="adresse3" value="Chicoutimi" disabled="">
+                    <input type="text" class="form-control" id="adresse3" name="city" value="Chicoutimi" disabled="">
                 </div>
             </div>
             <div class="col-md-2">
                 <div class="form-group">
                     <label for="adresse4">Code Postal</label>
-                    <input type="text" class="form-control" id="adresse4" placeholder="Code Postal">
+                    <input type="text" class="form-control" id="adresse4" name="postal_code" placeholder="Code Postal">
                 </div>
             </div>
         </div>
@@ -58,27 +58,28 @@
             <div class="col-md-2">
                 <div class="form-group">
                     <label for="lat">Latitude</label>
-                    <input type="text" class="form-control" id="lat" disabled="">
+                    <input type="hidden" class="form-control" name="latitude" id="lat">
                 </div>
             </div>
             <div class="col-md-2">
                 <div class="form-group">
                     <label for="lng">Longitude</label>
-                    <input type="text" class="form-control" id="lng" disabled="">
+                    <input type="hidden" class="form-control" name="longitude" id="lng">
                 </div>
             </div>
         </div>
 
         <div class="form-group">
             <label for="price">Prix</label>
-            <input type="number" class="form-control" id="price" placeholder="Prix en dollars $$">
+            <input type="number" class="form-control" name="price" id="price" placeholder="Prix en dollars $$">
         </div>
 
         <div class="form-group">
             <label for="picture">Photo de l'annonce</label>
-            <input type="file" class="form-control" id="picture">
+            <input type="file" class="form-control" id="picture" name="thumbnail">
         </div>
 
+        <input type="hidden" name="_token" value="{{ csrf_token() }}">
         <button class="btn btn-default">Poster mon annonce</button>
     </form>
 @endsection

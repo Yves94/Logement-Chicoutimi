@@ -17,7 +17,7 @@
 
 Route::get('/', 'Place@index');
 Route::get('/sale', 'Place@create');
-Route::post('/sale/store', 'Place@store');
+Route::post('/sale', 'Place@store');
 Route::get('/places/{place}', 'Place@show');
 
 
