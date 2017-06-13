@@ -59,7 +59,6 @@ class Place extends Controller
     {  
         $request['city'] = 'Chicoutimi';
         $request['address'] = $request->input('num') .', '. $request->input('rue');
-        $request['thumbnail'] = 'http://lorempixel.com/350/250/';
 
         $place = $this->httpClient->callApi(
             HttpClientService::POST_METHOD,

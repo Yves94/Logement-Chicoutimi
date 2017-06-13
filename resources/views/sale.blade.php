@@ -76,7 +76,8 @@
 
         <div class="form-group">
             <label for="picture">Photo de l'annonce</label>
-            <input type="file" class="form-control" id="picture" name="thumbnail">
+            <input type="button" id="picture" class="btn btn-info" value="Uploader une photo" onclick="showPicker()" />
+            <input type="hidden" name="thumbnail" id="thumbnail" value="">
         </div>
 
         <input type="hidden" name="_token" value="{{ csrf_token() }}">
@@ -125,4 +126,32 @@
     }
 
 </script>
+
+{{-- FileStack --}}
+<script type="text/javascript" src="https://static.filestackapi.com/v3/filestack.js"></script>
+<script>
+    var client = filestack.init('AFj9FGqSnQPm9vYEXfPqQz');
+    function showPicker() {
+        client.pick({
+            accept: 'image/*',
+            maxFiles: 1,
+        }).then(function(result) {
+            var link = JSON.stringify(result.filesUploaded[0].url);      
+            var transformedUrl = client.transform(link, {
+              crop: {
+                dim: {
+                  x: 0,
+                  y: 0,
+                  width: 350,
+                  height: 250
+                }
+              }
+            });
+            
+            $('#thumbnail').val(transformedUrl);
+        });
+    }
+
+</script>
+
 @endsection
